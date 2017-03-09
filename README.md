@@ -1,4 +1,4 @@
-.checkout
+Book Shop
 =========
 
-A Symfony project created on March 9, 2017, 3:49 pm.
+A simple book shop.
