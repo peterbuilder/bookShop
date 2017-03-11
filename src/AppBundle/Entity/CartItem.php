@@ -27,7 +27,7 @@ class CartItem
 
     /**
      * @ORM\product
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Product", mappedBy="cartItem")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Product")
      */
     protected $product;
 
