@@ -22,52 +22,31 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="integer")
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Order", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Cart", mappedBy="user")
      */
-    protected $orders;
-
-    /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Cart", mappedBy="user")
-     */
-    protected $cart;
+    protected $carts;
 
     public function __construct()
     {
         parent::__construct();
-        $this->orders = new ArrayCollection();
+        $this->carts = new ArrayCollection();
     }
 
-    /**
-     * @return ArrayCollection
-     */
-    public function getOrders()
-    {
-        return $this->orders;
-    }
-
-    /**
-     * @param ArrayCollection $orders
-     */
-    public function setOrders($orders)
-    {
-        $this->orders = $orders;
-    }
 
     /**
      * @return mixed
      */
-    public function getCart()
+    public function getCarts()
     {
-        return $this->cart;
+        return $this->carts;
     }
 
     /**
      * @param mixed $carts
      */
-    public function setCart($cart)
+    public function setCarts($carts)
     {
-        $this->cart = $cart;
+        $this->carts = $carts;
     }
 
 
