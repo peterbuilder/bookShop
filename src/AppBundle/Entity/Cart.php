@@ -27,9 +27,14 @@ class Cart
     protected $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\User", inversedBy="cart")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="carts")
      */
     protected $user;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $isBuy;
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\CartItem", mappedBy="cart")
