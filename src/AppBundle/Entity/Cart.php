@@ -21,11 +21,13 @@ class Cart
 
     /**
      * @ORM\user
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\User", inversedBy="cart")
      */
     protected $user;
 
     /**
      * @ORM\cartItems
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CartItem", mappedBy="cart")
      */
     protected $cartItems;
 

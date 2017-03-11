@@ -20,7 +20,14 @@ class CartItem
     protected $id;
 
     /**
+     * @ORM\cart
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cart", inversedBy="cartItems")
+     */
+    protected $cart;
+
+    /**
      * @ORM\product
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Product", mappedBy="cartItem")
      */
     protected $product;
 

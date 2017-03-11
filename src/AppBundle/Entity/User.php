@@ -22,7 +22,8 @@ class User extends BaseUser
     /**
      * @ORM\orders
      * @ORM\Column(type="integer")
-     * @ORM\OneToMany(targetEntity="")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Order", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Cart", mappedBy="user")
      */
     protected $orders;
 

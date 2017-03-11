@@ -22,6 +22,7 @@ class Order
 
     /**
      * @ORM\user
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="orders")
      */
     protected $user;
 

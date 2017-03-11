@@ -44,6 +44,12 @@ class Product
     protected $quantity;
 
     /**
+     * @ORM\cartItem
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\CartItem", inversedBy="product")
+     */
+    protected $cartItem;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -113,6 +119,22 @@ class Product
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCartItem()
+    {
+        return $this->cartItem;
+    }
+
+    /**
+     * @param mixed $cartItem
+     */
+    public function setCartItem($cartItem)
+    {
+        $this->cartItem = $cartItem;
     }
 
 }
