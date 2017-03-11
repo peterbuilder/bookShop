@@ -10,29 +10,33 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
+/**
+ * CartItem
+ *
+ * @ORM\Table(name="cartItem")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\cartItemRepository")
+ */
 class CartItem
 {
     /**
-     * @ORM\id
+     * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
-     * @ORM\cart
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Cart", inversedBy="cartItems")
      */
     protected $cart;
 
     /**
-     * @ORM\product
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Product")
      */
     protected $product;
 
     /**
-     * @ORM\quantity
      * @ORM\Column(type="integer")
      */
     protected $quantity;

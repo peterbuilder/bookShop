@@ -10,35 +10,37 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Product
+ *
+ * @ORM\Table(name="product")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\productRepository")
+ */
 class Product
 {
     /**
-     * @ORM\id
+     * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
-     * @ORM\name
      * @ORM\Column(type="string")
      */
     protected $name;
 
     /**
-     * @ORM\category
      * @ORM\Column(type="string")
      */
     protected $category;
 
     /**
-     * @ORM\price
      * @ORM\Column(type="float")
      */
     protected $price;
 
     /**
-     * @ORM\quantity
      * @ORM\Column(type="integer")
      */
     protected $quantity;

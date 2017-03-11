@@ -7,7 +7,9 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * User
+ *
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\userRepository")
  * @ORM\Table(name="fos_user")
  */
 class User extends BaseUser
@@ -20,15 +22,13 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\orders
      * @ORM\Column(type="integer")
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Order", mappedBy="user")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Cart", mappedBy="user")
      */
     protected $orders;
 
     /**
-     * @ORM\cart
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Cart", mappedBy="user")
      */
     protected $cart;
 

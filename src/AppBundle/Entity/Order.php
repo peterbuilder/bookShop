@@ -11,35 +11,39 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Order
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\orderRepository")
+ * @ORM\Table(name="order")
+ *
+ */
 class Order
 {
     /**
-     * @ORM\id
+     * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
-     * @ORM\user
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="orders")
      */
     protected $user;
 
     /**
-     * @ORM\products
+     *
      */
-    protected $products;
+    protected $cartItems;
 
     /**
-     * @ORM\date
      * @ORM\Column(type="datetime")
      */
     protected $date;
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
+        $this->cartItems = new ArrayCollection();
     }
 
     /**
@@ -69,17 +73,17 @@ class Order
     /**
      * @return mixed
      */
-    public function getProducts()
+    public function getCartItems()
     {
-        return $this->products;
+        return $this->cartItems;
     }
 
     /**
-     * @param mixed $products
+     * @param mixed $cartItems
      */
-    public function setProducts($products)
+    public function setCartItems($cartItems)
     {
-        $this->products = $products;
+        $this->cartItems = $cartItems;
     }
 
     /**
