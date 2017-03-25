@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: piotr
  * Date: 10.03.17
- * Time: 20:49
+ * Time: 20:30
  */
 
 namespace AppBundle\Entity;
@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Order
- * @ORM\Entity(repositoryClass="AppBundle\Repository\orderRepository")
- * @ORM\Table(name="order")
  *
+ * @ORM\Table(name="order")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\orderRepository")
  */
 class Order
 {
@@ -32,14 +32,9 @@ class Order
     protected $user;
 
     /**
-     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CartItem", mappedBy="cart")
      */
     protected $cartItems;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    protected $date;
 
     public function __construct()
     {
@@ -84,22 +79,6 @@ class Order
     public function setCartItems($cartItems)
     {
         $this->cartItems = $cartItems;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * @param mixed $date
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
     }
 
 

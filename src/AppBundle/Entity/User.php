@@ -22,31 +22,31 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Cart", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Order.php", mappedBy="user")
      */
-    protected $carts;
+    protected $orders;
 
     public function __construct()
     {
         parent::__construct();
-        $this->carts = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
 
     /**
      * @return mixed
      */
-    public function getCarts()
+    public function getOrders()
     {
-        return $this->carts;
+        return $this->orders;
     }
 
     /**
-     * @param mixed $carts
+     * @param mixed $orders
      */
-    public function setCarts($carts)
+    public function setOrders($orders)
     {
-        $this->carts = $carts;
+        $this->orders = $orders;
     }
 
 
