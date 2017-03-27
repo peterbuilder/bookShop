@@ -27,9 +27,9 @@ class CartItem
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Order.php", inversedBy="cartItems")
+     * @ORM\ManyToOne(targetEntity="Order", inversedBy="cartItems")
      */
-    protected $cart;
+    protected $order;
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Product")

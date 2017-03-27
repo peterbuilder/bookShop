@@ -32,7 +32,7 @@ class Order
     protected $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CartItem", mappedBy="cart")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CartItem", mappedBy="order")
      */
     protected $cartItems;
 
