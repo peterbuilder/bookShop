@@ -2,11 +2,14 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * User
+ *
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\userRepository")
  * @ORM\Table(name="fos_user")
  */
 class User extends BaseUser
@@ -18,8 +21,35 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Order", mappedBy="user")
+     */
+    protected $orders;
+
     public function __construct()
     {
         parent::__construct();
+        $this->orders = new ArrayCollection();
     }
+
+
+    /**
+     * @return mixed
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    /**
+     * @param mixed $orders
+     */
+    public function setOrders($orders)
+    {
+        $this->orders = $orders;
+    }
+
+
+
+
 }
