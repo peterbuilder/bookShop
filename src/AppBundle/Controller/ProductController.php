@@ -26,17 +26,35 @@ class ProductController extends Controller
     public function addProductAction(Request $request)
     {
         $product = new Product();
+        $name = $request->request->get('name');
+        $category = $request->request->get('category');
+        $price = $request->request->get('price');
+        $quantity = $request->request->get('quantity');
 
-        $product->setName('G6');
-        $product->setCategory('smartphone');
-        $product->setPrice(500);
-        $product->setQuantity(5);
+        $product->setName($name);
+        $product->setCategory($category);
+        $product->setPrice($price);
+        $product->setQuantity($quantity);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($product);
         $em->flush();
 
-        return new Response();
+        return [
+            'name' => $name,
+            'category' => $category,
+            'price' => $price,
+            'quantity' => $quantity
+            ];
+    }
+
+    /**
+     * @Route("/showFormAddProduct")
+     * @Template()
+     */
+    public function showFormAddProductAction()
+    {
+        return [];
     }
 
 }
